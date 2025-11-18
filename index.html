@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spel Aanvulling - Race & Muziek</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🏎️ Spel Aanvulling: Race & Muziek</h1>
+    </header>
+
+    <main>
+        <div id="quiz-container">
+            <section class="game-section" id="music-section">
+                <h2>🎵 1. Muziekquiz (1990-2010)</h2>
+                <p>Raad: Voor of na 2000?</p>
+                <button onclick="startMusicQuiz()">Start Lied</button>
+                <div id="music-output" class="output-box"></div>
+            </section>
+
+            <section class="game-section" id="f1-section">
+                <h2>🏁 2. Formule 1 Quiz</h2>
+                <p>Technische vragen, Norris & Verstappen.</p>
+                <button onclick="startF1Quiz()">Nieuwe Vraag</button>
+                <div id="f1-output" class="output-box"></div>
+                <button id="f1-answer-btn" onclick="showF1Answer()" style="display: none;">Toon Antwoord</button>
+            </section>
+
+            <section class="game-section" id="board-section">
+                <h2>🎲 3. Bordspel Opdracht</h2>
+                <p>Werp een dobbelsteen voor een actie.</p>
+                <button onclick="rollDice()">Werp Dobbelsteen</button>
+                <div id="board-output" class="output-box"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Gemaakt door je Programmeerpartner</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
