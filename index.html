@@ -12,28 +12,44 @@
     </header>
 
     <main>
-        <div id="quiz-container">
-            <section class="game-section" id="music-section">
-                <h2>🎵 1. Muziekquiz (1990-2010)</h2>
+        <div id="main-menu" class="view active">
+            <h2>Kies een Opdracht</h2>
+            <section class="game-section">
+                <button onclick="showView('music-view')">🎵 1. Spotify Muziekquiz</button>
+                <button onclick="showView('f1-view')">🏁 2. Formule 1 Quiz</button>
+                <button onclick="showView('board-view')">🎲 3. Bordspel Opdracht</button>
+            </section>
+        </div>
+
+        <div id="music-view" class="view hidden">
+            <section class="game-section">
+                <h2>🎵 Muziekquiz (1990-2010)</h2>
                 <p>Raad: Voor of na 2000?</p>
                 <button onclick="startMusicQuiz()">Start Lied</button>
-                <div id="music-output" class="output-box"></div>
+                <div id="music-output" class="output-box">Druk op 'Start Lied' om te beginnen.</div>
             </section>
+            <button class="back-button" onclick="showView('main-menu')">↩️ Terug naar Menu</button>
+        </div>
 
-            <section class="game-section" id="f1-section">
-                <h2>🏁 2. Formule 1 Quiz</h2>
+        <div id="f1-view" class="view hidden">
+            <section class="game-section">
+                <h2>🏁 Formule 1 Quiz</h2>
                 <p>Technische vragen, Norris & Verstappen.</p>
                 <button onclick="startF1Quiz()">Nieuwe Vraag</button>
-                <div id="f1-output" class="output-box"></div>
+                <div id="f1-output" class="output-box">Druk op 'Nieuwe Vraag' om te starten.</div>
                 <button id="f1-answer-btn" onclick="showF1Answer()" style="display: none;">Toon Antwoord</button>
             </section>
+            <button class="back-button" onclick="showView('main-menu')">↩️ Terug naar Menu</button>
+        </div>
 
-            <section class="game-section" id="board-section">
-                <h2>🎲 3. Bordspel Opdracht</h2>
+        <div id="board-view" class="view hidden">
+            <section class="game-section">
+                <h2>🎲 Bordspel Opdracht</h2>
                 <p>Werp een dobbelsteen voor een actie.</p>
                 <button onclick="rollDice()">Werp Dobbelsteen</button>
                 <div id="board-output" class="output-box"></div>
             </section>
+            <button class="back-button" onclick="showView('main-menu')">↩️ Terug naar Menu</button>
         </div>
     </main>
 
