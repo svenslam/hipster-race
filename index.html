@@ -13,11 +13,19 @@
 
     <main>
         <div id="main-menu" class="view active">
-            <h2>Kies een Opdracht</h2>
+            <h2>Welkom bij de Grote Quiz!</h2>
+            <p>Kies een spelmodus om te starten:</p>
+            
             <section class="game-section">
-                <button onclick="showView('music-view')">🎵 1. Spotify Muziekquiz</button>
-                <button onclick="showView('f1-view')">🏁 2. Formule 1 Quiz</button>
-                <button onclick="showView('board-view')">🎲 3. Bordspel Opdracht</button>
+                <div class="button-group">
+                    <button onclick="showView('music-view')">🎵 1. Spotify Muziekquiz</button>
+                    <button onclick="showView('f1-view')">🏁 2. Formule 1 Quiz</button>
+                    <button onclick="showView('board-view')">🎲 3. Bordspel Opdracht</button>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button id="audio-toggle-btn" onclick="toggleMainMenuAudio()">🔇 Muziek uit</button>
+                </div>
             </section>
         </div>
 
@@ -25,19 +33,26 @@
             <section class="game-section">
                 <h2>🎵 Muziekquiz (1990-2010)</h2>
                 <p>Raad: Voor of na 2000?</p>
-                <button onclick="startMusicQuiz()">Start Lied</button>
+                
                 <div id="music-output" class="output-box">Druk op 'Start Lied' om te beginnen.</div>
+                
+                <div class="button-group">
+                    <button onclick="startMusicQuiz()">Start Nieuw Lied</button>
+                    <button id="music-answer-btn" onclick="showMusicAnswer()" style="display: none;">Toon Antwoord</button>
+                    <button id="music-back-btn" onclick="showView('main-menu')" style="display: none;">↩️ Terug naar Menu</button>
+                </div>
             </section>
-            <button class="back-button" onclick="showView('main-menu')">↩️ Terug naar Menu</button>
         </div>
 
         <div id="f1-view" class="view hidden">
             <section class="game-section">
                 <h2>🏁 Formule 1 Quiz</h2>
                 <p>Technische vragen, Norris & Verstappen.</p>
-                <button onclick="startF1Quiz()">Nieuwe Vraag</button>
                 <div id="f1-output" class="output-box">Druk op 'Nieuwe Vraag' om te starten.</div>
-                <button id="f1-answer-btn" onclick="showF1Answer()" style="display: none;">Toon Antwoord</button>
+                <div class="button-group">
+                    <button onclick="startF1Quiz()">Nieuwe Vraag</button>
+                    <button id="f1-answer-btn" onclick="showF1Answer()" style="display: none;">Toon Antwoord</button>
+                </div>
             </section>
             <button class="back-button" onclick="showView('main-menu')">↩️ Terug naar Menu</button>
         </div>
@@ -45,8 +60,8 @@
         <div id="board-view" class="view hidden">
             <section class="game-section">
                 <h2>🎲 Bordspel Opdracht</h2>
-                <p>Werp een dobbelsteen voor een actie.</p>
-                <button onclick="rollDice()">Werp Dobbelsteen</button>
+                <p>Trek een kaart voor een actie.</p>
+                <button onclick="getBoardCommand()">Trek Opdracht Kaart</button>
                 <div id="board-output" class="output-box"></div>
             </section>
             <button class="back-button" onclick="showView('main-menu')">↩️ Terug naar Menu</button>
