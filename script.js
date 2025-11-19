@@ -1,80 +1,54 @@
-// --- DEEL 1: DATA VOOR MUZIEKQUIZ (47 items, definitieve indeling) ---
-// De nummers zijn ingedeeld op basis van jouw laatste instructies:
-// - Vóór 2000 (alles t/m 1999)
-// - Ná 2000 (alles vanaf 2000)
+// --- DEEL 1: DATA VOOR MUZIEKQUIZ (40 items, definitieve indeling) ---
+// LET OP: DEZE LINKS ZIJN PLAATSHOUDERS EN MOETEN NOG WORDEN VERVANGEN DOOR ECHTE, WERKENDENDE SPOTIFY OF AUDIO URL'S!
 const musicTracks = [
-    // Jouw nummers NA 2000 (2000 t/m 2019)
-    { url: "https://open.spotify.com/track/6UEfyhyfhYQsyipxOd95Ie?si=PFDOY8UDTcKlqSrfQXZolQ", label: "Na 2000", title: "Link 31 - (2002)" },
+    // Nummers NA 2000 (2000 en later)
     { url: "https://open.spotify.com/track/4BC2WQKrZdqMX6rHsvVbUy?si=N-MzXvDLQO2l0y9GNc8YxQ", label: "Na 2000", title: "Link 32 - (2000)" },
     { url: "https://open.spotify.com/track/3BCqG9GBF7GjJQHwJvlqSv?si=rQt6HCfAQb6xSFi4L_Jk5Q&context=spotify%3Aplaylist%3A55FFgxtJuTFRWi91pUgYHq", label: "Na 2000", title: "Link 33 - (2000)" },
-    { url: "https://open.spotify.com/track/2G8czBYoqbDYj9C9bks1P8?si=0xcRyxmDQpuDdpf-XPT7gg&context=spotify%3Aplaylist%3A55FFgxtJuTFRWi91pUgYHq", label: "Na 2000", title: "Link 34 - (2001)" },
-    { url: "https://open.spotify.com/track/47Slg6LuqLaX0VodpSCvPt?si=4p8oR_afSOGGtKnKddbEgQ", label: "Na 2000", title: "Link 36 - (2010)" },
-    { url: "https://open.spotify.com/track/0vFs2Eorve6vnnQcmItot1?si=7E9r5mGKRjmmFWGCPR1lmA", label: "Na 2000", title: "Link 37 - (2006)" },
-    { url: "https://open.spotify.com/track/0BCPKOYdS2jbQ8iyB56Zns?si=iDbZq2LLR1KB9HoKNx20Wg", label: "Na 2000", title: "Link 38 - (2002)" },
-    { url: "https://open.spotify.com/track/5r5cp9IpziiIsR6b93vcnQ?si=eidv4xjjTHypbX4iYO5cHQ&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 39 - (2008)" },
-    { url: "https://open.spotify.com/track/5S8QeiTS2ehiXtzNDV2yR8?si=j_PDiE12TA66PW4fLRDlpg&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 40 - (2003)" },
-    { url: "https://open.spotify.com/track/3Lk7RWStfLaHG7lXsuS87j?si=qklXm5BERten85d4dFyZfw&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 41 - (2005)" },
-    { url: "https://open.spotify.com/track/521r1faH9BQlyPVR5pMmXm?si=kNNpeTLIQdWCJqVC7n7ZWw&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 42 - (2008)" },
-    { url: "https://open.spotify.com/track/7e6Vp3lkuFwDvC4M687SJv?si=zyS2FvS_QUCpd0AQA2EZFA&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 43 - (2006)" },
-    { url: "https://open.spotify.com/track/2DrGEaqoruCSn0FffWCf5O?si=FibRhZj7ThO4Wz87Jd5eUQ&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 44 - (2008)" },
-    { url: "https://open.spotify.com/track/6PwjJ58I4t7Mae9xfZ9l9v?si=Ukxsq3Y9QM2ELfIZJOeJCw&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 45 - (2004)" },
     { url: "https://open.spotify.com/track/3APHT3KjbHi9OllkVQsuXF?si=ipf9OC-yRrSw2UN83pgceA&context=spotify%3Aplaylist%3A37i9dQZF1DWWB7GKDYW7V3", label: "Na 2000", title: "Link 46 - (2000)" },
-    { url: "https://open.spotify.com/track/0ntQJM78wzOLVeCUAW7Y45?si=jSw5lMkJRfydFTyjakxtzw&context=spotify%3Aplaylist%3A37i9dQZF1DWWB7GKDYW7V3", label: "Na 2000", title: "Link 48 - (2008)" },
-    { url: "https://open.spotify.com/track/2sgBTNHz9ckmqj3rx3ez4M?si=RqhDdKeQTTC-8u7VL7kTbQ&context=spotify%3Aplaylist%3A37i9dQZF1DWWB7GKDYW7V3", label: "Na 2000", title: "Link 49 - (2007)" },
-    { url: "https://open.spotify.com/track/456WNXWhDwYOSf5SpTuqxd?si=U8DT3m8TRu-HMaxVW250pA&context=spotify%3Aplaylist%3A37i9dQZF1DWWB7GKDYW7V3", label: "Na 2000", title: "Link 50 - (2009)" },
     { url: "https://open.spotify.com/track/3AU1O0gRYf9goSefBGvSOv?si=vEUrU3B1Rae8XZX4tH8FeA&context=spotify%3Atrack%3A3AU1O0gRYf9goSefBGvSOv", label: "Na 2000", title: "Link 51 - (2000)" },
-    { url: "https://open.spotify.com/track/4cluDES4hQEUhmXj6TXkSo?si=vzMmAWsgSZqxMmZmWnGWeQ&context=spotify%3Asearch%3Aone%2Bdirection", label: "Na 2000", title: "Link 86 - (2012)" }, // Toegevoegd op verzoek
-    { url: "https://open.spotify.com/track/2Yw5jfEaQFHoUFhzXUGkgV?si=DvXFC9C1TFm6NUWW_ilYPw&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Na 2000", title: "Link 87 - (2013)" }, // Toegevoegd op verzoek
-    { url: "https://open.spotify.com/track/3Rhfga08pNnhLMQVb2nRXp?si=2C2q0cvlQrmk7V3SG4oazQ&context=spotify%3Aalbum%3A2VXeD0hKkY9i8TyGb0chVi", label: "Na 2000", title: "Link 88 - (2019)" }, // Toegevoegd op verzoek
+    { url: "https://open.spotify.com/track/2G8czBYoqbDYj9C9bks1P8?si=0xcRyxmDQpuDdpf-XPT7gg&context=spotify%3Aplaylist%3A55FFgxtJuTFRWi91pUgYHq", label: "Na 2000", title: "Link 34 - (2001)" },
+    { url: "https://open.spotify.com/track/6UEfyhyfhYQsyipxOd95Ie?si=PFDOY8UDTcKlqSrfQXZolQ", label: "Na 2000", title: "Link 31 - (2002)" },
+    { url: "https://open.spotify.com/track/0BCPKOYdS2jbQ8iyB56Zns?si=iDbZq2LLR1KB9HoKNx20Wg", label: "Na 2000", title: "Link 38 - (2002)" },
+    { url: "https://open.spotify.com/track/5S8QeiTS2ehiXtzNDV2yR8?si=j_PDiE12TA66PW4fLRDlpg&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 40 - (2003)" },
+    { url: "https://open.spotify.com/track/6PwjJ58I4t7Mae9xfZ9l9v?si=Ukxsq3Y9QM2ELfIZJOeJCw&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 45 - (2004)" },
+    { url: "https://open.spotify.com/track/3Lk7RWStfLaHG7lXsuS87j?si=qklXm5BERten85d4dFyZfw&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 41 - (2005)" },
+    { url: "https://open.spotify.com/track/0vFs2Eorve6vnnQcmItot1?si=7E9r5mGKRjmmFWGCPR1lmA", label: "Na 2000", title: "Link 37 - (2006)" },
+    { url: "https://open.spotify.com/track/7e6Vp3lkuFwDvC4M687SJv?si=zyS2FvS_QUCpd0AQA2EZFA&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 43 - (2006)" },
+    { url: "https://open.spotify.com/track/2sgBTNHz9ckmqj3rx3ez4M?si=RqhDdKeQTTC-8u7VL7kTbQ&context=spotify%3Aplaylist%3A37i9dQZF1DWWB7GKDYW7V3", label: "Na 2000", title: "Link 49 - (2007)" },
+    { url: "https://open.spotify.com/track/5r5cp9IpziiIsR6b93vcnQ?si=eidv4xjjTHypbX4iYO5cHQ&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 39 - (2008)" },
+    { url: "https://open.spotify.com/track/521r1faH9BQlyPVR5pMmXm?si=kNNpeTLIQdWCJqVC7n7ZWw&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 42 - (2008)" },
+    { url: "https://open.spotify.com/track/2DrGEaqoruCSn0FffWCf5O?si=FibRhZj7ThO4Wz87Jd5eUQ&context=spotify%3Aplaylist%3A37i9dQZF1EIdh6MgVIhb8B", label: "Na 2000", title: "Link 44 - (2008)" },
+    { url: "https://open.spotify.com/track/0ntQJM78wzOLVeCUAW7Y45?si=jSw5lMkJRfydFTyjakxtzw&context=spotify%3Aplaylist%3A37i9dQZF1DWWB7GKDYW7V3", label: "Na 2000", title: "Link 48 - (2008)" },
+    { url: "https://open.spotify.com/track/456WNXWhDwYOSf5SpTuqxd?si=U8DT3m8TRu-HMaxVW250pA&context=spotify%3Aplaylist%3A37i9dQZF1DWWB7GKDYW7V3", label: "Na 2000", title: "Link 50 - (2009)" },
+    { url: "https://open.spotify.com/track/47Slg6LuqLaX0VodpSCvPt?si=4p8oR_afSOGGtKnKddbEgQ", label: "Na 2000", title: "Link 36 - (2010)" },
+    { url: "https://open.spotify.com/track/4cluDES4hQEUhmXj6TXkSo?si=vzMmAWsgSZqxMmZmWnGWeQ&context=spotify%3Asearch%3Aone%2Bdirection", label: "Na 2000", title: "Link 86 - (2012)" }, 
+    { url: "https://open.spotify.com/track/2Yw5jfEaQFHoUFhzXUGkgV?si=DvXFC9C1TFm6NUWW_ilYPw&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Na 2000", title: "Link 87 - (2013)" }, 
+    { url: "https://open.spotify.com/track/7KX65PC1UZuImsUInThbav?si=TeZQaBLwRCaqn9X7LiNizg&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Na 2000", title: "Link 54 - (2017)" },
+    { url: "https://open.spotify.com/track/6ho0GyrWZN3mhi9zVRW7xi?si=xhfQk0R6TSaZOpU2PYokXg", label: "Na 2000", title: "Link 52 - (2018)" },
+    { url: "https://open.spotify.com/track/3Rhfga08pNnhLMQVb2nRXp?si=2C2q0cvlQrmk7V3SG4oazQ&context=spotify%3Aalbum%3A2VXeD0hKkY9i8TyGb0chVi", label: "Na 2000", title: "Link 88 - (2019)" }, 
+    { url: "https://open.spotify.com/track/3Udr12Hj4tFHG759UBSZNc?si=zVxlUHBnRP6ANUqcpJ7cDQ", label: "Na 2000", title: "Link 35 - (2023)" },
+    { url: "https://open.spotify.com/track/1j8GQQGyC26O1TeW4LLvjk?si=h0S136uTTLizDYISuB3hWg&context=spotify%3Aplaylist%3A37i9dQZF1DWWB7GKDYW7V3", label: "Na 2000", title: "Link 47 - (2023)" },
+    { url: "https://open.spotify.com/track/2ibiwyQF66OWBgJWW0tIF0?si=OLnFooAdSp23m28mVC2B-Q&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Na 2000", title: "Link 53 - (2023)" },
+    { url: "https://open.spotify.com/track/1g9GiiPPaL7KcDHlDzu7lT?si=rzCtqv3dRBaQkSVzzPBUuw&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Na 2000", title: "Link 55 - (2025)" },
 
-    // Jouw nummers VOOR 2000 (t/m 1999)
-    { url: "https://open.spotify.com/track/0u6pA1iXlR9n3eK9sD454x6", label: "Voor 2000", title: "Link 56 - (1990)" },
-    { url: "https://open.spotify.com/track/0u6pA1iXlR9n3eK9sD454x7", label: "Voor 2000", title: "Link 57 - (1990)" },
-    { url: "https://open.spotify.com/track/0u6pA1iXlR9n3eK9sD454x8", label: "Voor 2000", title: "Link 58 - (1991)" },
-    { url: "https://open.spotify.com/track/0u6pA1iXlR9n3eK9sD454x9", label: "Voor 2000", title: "Link 59 - (1991)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF0", label: "Voor 2000", title: "Link 60 - (1992)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF1", label: "Voor 2000", title: "Link 61 - (1992)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF2", label: "Voor 2000", title: "Link 62 - (1993)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF3", label: "Voor 2000", title: "Link 63 - (1993)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF4", label: "Voor 2000", title: "Link 64 - (1994)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF5", label: "Voor 2000", title: "Link 65 - (1994)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF6", label: "Voor 2000", title: "Link 66 - (1995)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF7", label: "Voor 2000", title: "Link 67 - (1995)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF8", label: "Voor 2000", title: "Link 68 - (1996)" },
-    { url: "https://open.spotify.com/track/6XkYvT4b0uU87Qy58Q5FmF9", label: "Voor 2000", title: "Link 69 - (1996)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n0", label: "Voor 2000", title: "Link 70 - (1997)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n1", label: "Voor 2000", title: "Link 71 - (1997)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n2", label: "Voor 2000", title: "Link 72 - (1998)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n3", label: "Voor 2000", title: "Link 73 - (1998)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n4", label: "Voor 2000", title: "Link 74 - (1999)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n5", label: "Voor 2000", title: "Link 75 - (1999)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n6", label: "Voor 2000", title: "Link 76 - (1990)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n7", label: "Voor 2000", title: "Link 77 - (1991)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n8", label: "Voor 2000", title: "Link 78 - (1992)" },
-    { url: "https://open.spotify.com/track/1P6X79l1569Bv6S9gM9P3n9", label: "Voor 2000", title: "Link 79 - (1993)" },
-    { url: "https://open.spotify.com/track/47zR68bT7x9n2KxN8YgD7G0", label: "Voor 2000", title: "Link 80 - (1994)" },
-    { url: "https://open.spotify.com/track/47zR68bT7x9n2KxN8YgD7G1", label: "Voor 2000", title: "Link 81 - (1995)" },
-    { url: "https://open.spotify.com/track/47zR68bT7x9n2KxN8YgD7G2", label: "Voor 2000", title: "Link 82 - (1996)" },
-    { url: "https://open.spotify.com/track/47zR68bT7x9n2KxN8YgD7G3", label: "Voor 2000", title: "Link 83 - (1997)" },
-    { url: "https://open.spotify.com/track/47zR68bT7x9n2KxN8YgD7G4", label: "Voor 2000", title: "Link 84 - (1998)" },
-    { url: "https://open.spotify.com/track/47zR68bT7x9n2KxN8YgD7G5", label: "Voor 2000", title: "Link 85 - (1999)" },
+    // Nummers VOOR 2000 (t/m 1999)
+    { url: "https://open.spotify.com/track/4CCLOGJX19mWFBDHSnifm9?si=W7XaMZCRQTGiqi-IMvfWlw&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Voor 2000", title: "Link 102 - (1970)" }, 
+    { url: "https://open.spotify.com/track/2EqlS6tkEnglzr7tkKAAYD?si=zrET8C6cQyqIrjiQSXFJqw&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Voor 2000", title: "Link 104 - (1970)" }, 
+    { url: "https://open.spotify.com/track/3GIChxHmuLmBm5PTNZGDtj?si=IvtgxP33QJ2wj1xQgO-bEQ&context=spotify%3Aplaylist%3A37i9dQZF1EVHGWrwldPRtj", label: "Voor 2000", title: "Link 105 - (1977)" }, 
+    { url: "https://open.spotify.com/track/4iUH4ksweue6iGqQUgSzhx?si=ux6sBgSkQuusmX7tRUX5_A", label: "Voor 2000", title: "Link 96 - (1982)" }, 
+    { url: "https://open.spotify.com/track/2H7PHVdQ3mXqEHXcvclTB0?si=pgeBZbzfRvCbcr7M2SVjcg&context=spotify%3Asearch%3A1999", label: "Voor 2000", title: "Link 97 - (1982)" }, 
+    { url: "https://open.spotify.com/track/0ikz6tENMONtK6qGkOrU3c?si=79xCM3pUTFqzWS3QmnTnOg", label: "Voor 2000", title: "Link 95 - (1984)" }, 
+    { url: "https://open.spotify.com/track/4JiEyzf0Md7KEFFGWDDdCr?si=tUGPdrOtReeH5XpsOn0ZyA&context=spotify%3Aplaylist%3A55FFgxtJuTFRWi91pUgYHq", label: "Voor 2000", title: "Link 93 - (1991)" },
+    { url: "https://open.spotify.com/track/3d9DChrdc6BOeFsbrZ3Is0?si=wkUM-x31Scyd0Yev-TSfSw", label: "Voor 2000", title: "Link 94 - (1991)" },
+    { url: "https://open.spotify.com/track/1Je1IMUlBXcx1Fz0WE7oPT?si=K10gRDPxSEm3jtc5lj3HbQ", label: "Voor 2000", title: "Link 92 - (1996)" },
+    { url: "https://open.spotify.com/track/6fh6lGvzuQibcFUB076WIR?si=tm4AobdPR-iZKdKh5Qgt1w&context=spotify%3Aplaylist%3A77EcIa561Z1VZURot2EZrm", label: "Voor 2000", title: "Link 101 - (1996)" }, 
     { url: "https://open.spotify.com/track/5ZrDlcxIDZyjOzHdYW1ydr?si=H99cwTkbQa2zCCBio3YiAg", label: "Voor 2000", title: "Link 89 - (1997)" },
     { url: "https://open.spotify.com/track/7onAFA3kzCPJWG3gvvMxhx?si=LFFjmw_oTb-K0QYnEyk_kQ", label: "Voor 2000", title: "Link 90 - (1997)" },
     { url: "https://open.spotify.com/track/75CLNW6Goi8LZ6rYGDmfHS?si=H7d2EeYUTUC_hL7tYeFekw", label: "Voor 2000", title: "Link 91 - (1997)" },
-    { url: "https://open.spotify.com/track/1Je1IMUlBXcx1Fz0WE7oPT?si=K10gRDPxSEm3jtc5lj3HbQ", label: "Voor 2000", title: "Link 92 - (1996)" },
-    { url: "https://open.spotify.com/track/4JiEyzf0Md7KEFFGWDDdCr?si=tUGPdrOtReeH5XpsOn0ZyA&context=spotify%3Aplaylist%3A55FFgxtJuTFRWi91pUgYHq", label: "Voor 2000", title: "Link 93 - (1991)" },
-    { url: "https://open.spotify.com/track/3d9DChrdc6BOeFsbrZ3Is0?si=wkUM-x31Scyd0Yev-TSfSw", label: "Voor 2000", title: "Link 94 - (1991)" },
-    { url: "https://open.spotify.com/track/3FD3gEw8o1Kb5OPBZr8rhy?si=E3iSGpC4RJe0iL6wF-sjmg&context=spotify%3Aplaylist%3A5RUb6yWZYmOKxwRMVNrODu", label: "Voor 2000", title: "Link 98 - (1999)" },
-    { url: "https://open.spotify.com/track/04wE70zoYM5Pckgw36dWBq?si=ahDXJBxRTnGFSI3Y0SgILw&context=spotify%3Aplaylist%3A5RUb6yWZYmOKxwRMVNrODu", label: "Voor 2000", title: "Link 99 - (1998)" },
-    { url: "https://open.spotify.com/track/24GYmF6atbc1mOmyN5RA0R?si=miqZxOvWSw6pVsjUyK63rQ&context=spotify%3Aplaylist%3A5RUb6yWZYmOKxwRMVNrODu", label: "Voor 2000", title: "Link 100 - (1999)" },
-    { url: "https://open.spotify.com/track/6fh6lGvzuQibcFUB076WIR?si=tm4AobdPR-iZKdKh5Qgt1w&context=spotify%3Aplaylist%3A77EcIa561Z1VZURot2EZrm", label: "Voor 2000", title: "Link 101 - (1996)" },
-    { url: "https://open.spotify.com/track/1G391cbiT3v3Cywg8T7DM1?si=TtEDVo2rQHi5zKq7F0Is1A&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Voor 2000", title: "Link 103 - (1999)" },
-    { url: "https://open.spotify.com/track/0ikz6tENMONtK6qGkOrU3c?si=79xCM3pUTFqzWS3QmnTnOg", label: "Voor 2000", title: "Link 95 - (1984)" }, // Toegevoegd op verzoek
-    { url: "https://open.spotify.com/track/4iUH4ksweue6iGqQUgSzhx?si=ux6sBgSkQuusmX7tRUX5_A", label: "Voor 2000", title: "Link 96 - (1982)" }, // Toegevoegd op verzoek
-    { url: "https://open.spotify.com/track/2H7PHVdQ3mXqEHXcvclTB0?si=pgeBZbzfRvCbcr7M2SVjcg&context=spotify%3Asearch%3A1999", label: "Voor 2000", title: "Link 97 - (1982)" }, // Toegevoegd op verzoek
-    { url: "https://open.spotify.com/track/4CCLOGJX19mWFBDHSnifm9?si=W7XaMZCRQTGiqi-IMvfWlw&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Voor 2000", title: "Link 102 - (1970)" }, // Toegevoegd op verzoek
-    { url: "https://open.spotify.com/track/2EqlS6tkEnglzr7tkKAAYD?si=zrET8C6cQyqIrjiQSXFJqw&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Voor 2000", title: "Link 104 - (1970)" }, // Toegevoegd op verzoek
-    { url: "https://open.spotify.com/track/3GIChxHmuLmBm5PTNZGDtj?si=IvtgxP33QJ2wj1xQgO-bEQ&context=spotify%3Aplaylist%3A37i9dQZF1EVHGWrwldPRtj", label: "Voor 2000", title: "Link 105 - (1977)" }, // Toegevoegd op verzoek
+    { url: "https://open.spotify.com/track/04wE70zoYM5Pckgw36dWBq?si=ahDXJBxRTnGFSI3Y0SgILw&context=spotify%3Aplaylist%3A5RUb6yWZYmOKxwRMVNrODu", label: "Voor 2000", title: "Link 99 - (1998)" }, 
+    { url: "https://open.spotify.com/track/3FD3gEw8o1Kb5OPBZr8rhy?si=E3iSGpC4RJe0iL6wF-sjmg&context=spotify%3Aplaylist%3A5RUb6yWZYmOKxwRMVNrODu", label: "Voor 2000", title: "Link 98 - (1999)" }, 
+    { url: "https://open.spotify.com/track/24GYmF6atbc1mOmyN5RA0R?si=miqZxOvWSw6pVsjUyK63rQ&context=spotify%3Aplaylist%3A5RUb6yWZYmOKxwRMVNrODu", label: "Voor 2000", title: "Link 100 - (1999)" }, 
+    { url: "https://open.spotify.com/track/1G391cbiT3v3Cywg8T7DM1?si=TtEDVo2rQHi5zKq7F0Is1A&context=spotify%3Aplaylist%3A37i9dQZF1EJCz3OAQsqpNG", label: "Voor 2000", title: "Link 103 - (1999)" }, 
 ];
 
 // --- DEEL 2: DATA VOOR F1 QUIZ (30 items) ---
@@ -247,7 +221,5 @@ function rollDice() {
 // Zorgt ervoor dat we bij het laden op het hoofdmenu starten en knoppen verstopt zijn
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('f1-answer-btn').style.display = 'none';
-    showView('main-menu'); 
-});
     showView('main-menu'); 
 });
