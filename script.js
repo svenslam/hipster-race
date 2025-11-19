@@ -95,19 +95,52 @@ const f1Questions = [
     { question: "Wat is de bijnaam van de oranje kleurstelling die McLaren soms gebruikt? (Norris)", answer: "Papaya." },
 ];
 
-// --- DEEL 3: DATA VOOR BORDSPEL OPDRACHTEN (1 dobbelsteen, 6 opties) ---
-const diceCommands = [
-    { result: 1, command: "Lekke Band: Sla je volgende beurt over. Pitstop gemist!" },
-    { result: 2, command: "Perfecte Pitstop: Ga direct 2 stappen vooruit. De banden waren er supersnel onder!" },
-    { result: 3, command: "Safety Car: Alle spelers blijven 1 beurt staan (inclusief jijzelf)." },
-    { result: 4, command: "Vuile Lucht (Dirty Air): Ga 1 stap terug. Je kunt niet voorbij de auto voor je komen!" },
-    { result: 5, command: "DRS Geopend: Gooi nog een keer! Je hebt een snelheidsvoordeel." },
-    { result: 6, command: "Pole Position Start: Ga direct 3 stappen vooruit. Een geweldige start!" },
+// --- DEEL 3: DATA VOOR BORDSPEL OPDRACHTEN (30 vaste opdrachten) ---
+const boardCommands = [
+    { command: "Vliegende Start! Ga **3 stappen** vooruit.", movement: 3 },
+    { command: "Onverwachte Pitstop: Ga **1 stap** achteruit.", movement: -1 },
+    { command: "Zing een Liedje: Zing 10 seconden lang een liedje naar keuze. Ga daarna **1 stap** vooruit.", movement: 1 },
+    { command: "Grote Remfout: Ga **4 stappen** achteruit.", movement: -4 },
+    { command: "Volg de Leider: Ga terug naar de plek van de laatst gepasseerde speler. Ga daarna **1 stap** vooruit.", movement: 1, action: "goto_last_player" },
+    { command: "DRS Geopend: Gooi een dobbelsteen (1-6) en ga dat aantal **achteruit**!", movement: 0, action: "dice_backward" },
+    { command: "Lekke Band: Sla de volgende beurt over. Ga daarna **2 stappen** achteruit.", movement: -2, action: "skip_turn" },
+    { command: "Vraagteken: Voer de **eerste opdracht** van de F1 Quiz of Muziekquiz uit (kies zelf). Ga daarna **1 stap** vooruit.", movement: 1, action: "execute_other_quiz" },
+    { command: "Kleine Fout: Ga **1 stap** achteruit.", movement: -1 },
+    { command: "Perfecte Bocht: Ga **2 stappen** vooruit.", movement: 2 },
+    { command: "Uitwijkmanoeuvre: Ga **1 stap** achteruit.", movement: -1 },
+    { command: "Safety Car: Alle spelers (inclusief jij) slaan hun volgende beurt over. Ga daarna **1 stap** vooruit.", movement: 1, action: "safety_car" },
+    { command: "Turbo Boost: Ga **3 stappen** vooruit.", movement: 3 },
+    { command: "Vuile Lucht: Ga **2 stappen** achteruit.", movement: -2 },
+    { command: "Kies een Categorie: Voer een opdracht uit de F1 Quiz **of** de Muziekquiz uit (kies zelf). **Geen stappen**.", movement: 0, action: "execute_other_quiz" },
+    { command: "Tankstop: Ga **2 stappen** achteruit.", movement: -2 },
+    { command: "Eindsprint: Ga **4 stappen** vooruit.", movement: 4 },
+    { command: "Verkeerde Banden: Ga **3 stappen** achteruit.", movement: -3 },
+    { command: "Zeg 'Kees' 5 keer achter elkaar zonder te lachen. Gelukt? Ga **2 stappen** vooruit. Mislukt? Ga **1 stap** achteruit.", movement: 0, action: "challenge" },
+    { command: "Slipstream: Ga **1 stap** vooruit.", movement: 1 },
+    { command: "Dubbele Pech: Gooi een dobbelsteen (1-6) en ga dat aantal **achteruit**. Sla daarna je volgende beurt over.", movement: 0, action: "dice_skip" },
+    { command: "Radio Storing: Ga **1 stap** achteruit.", movement: -1 },
+    { command: "Nieuwe Set Banden: Ga **1 stap** vooruit.", movement: 1 },
+    { command: "Verrassingsopdracht: Voer de **eerste opdracht** uit de F1 Quiz uit. Ga **2 stappen** vooruit.", movement: 2, action: "execute_f1" },
+    { command: "Verrassingsopdracht: Voer de **eerste opdracht** uit de Muziekquiz uit. Ga **2 stappen** vooruit.", movement: 2, action: "execute_music" },
+    { command: "Trek de Kaart van de Speler Na Je: De volgende speler leest en voert deze opdracht uit. **Jij blijft staan**.", movement: 0, action: "pass_command" },
+    { command: "Motorproblemen: Ga **3 stappen** achteruit.", movement: -3 },
+    { command: "Snelle Ronde: Ga **2 stappen** vooruit.", movement: 2 },
+    { command: "Verplichte Dans: Doe 10 seconden lang de Macarena (of een andere gekke dans). Ga daarna **2 stappen** vooruit.", movement: 2, action: "challenge" },
+    { command: "Perfecte Inhaalactie: Ga **4 stappen** vooruit.", movement: 4 },
 ];
 
-// --- FUNCTIES VOOR DE SPELMECHANICA ---
 
+// --- STATE EN INDEX VARIABELEN ---
 let currentF1Question = null;
+let currentMusicTrack = null;
+let currentMusicAnswer = null;
+
+// Gebruikt voor het bijhouden van welke vragen al zijn gesteld (voor herhaling)
+let usedMusicIndices = []; 
+let usedF1Indices = [];
+
+
+// --- FUNCTIES VOOR DE SPELMECHANICA ---
 
 /**
  * Toont de geselecteerde view en verbergt alle andere.
@@ -127,6 +160,12 @@ function showView(viewId) {
                 document.getElementById('f1-output').innerHTML = "Druk op 'Nieuwe Vraag' om te starten.";
                 document.getElementById('f1-answer-btn').style.display = 'none';
                 document.getElementById('board-output').innerHTML = "";
+                document.getElementById('music-answer-btn').style.display = 'none'; // Verberg knoppen
+                document.getElementById('music-back-btn').style.display = 'none'; // Verberg knoppen
+                
+                playMainMenuAudio(); // Speel de muziek af in het hoofdmenu
+            } else {
+                stopMainMenuAudio(); // Stop de muziek bij het verlaten van het hoofdmenu
             }
         } else {
             view.classList.remove('active');
@@ -137,27 +176,77 @@ function showView(viewId) {
     window.scrollTo(0, 0);
 }
 
+/**
+ * Functie om de index voor vragen te krijgen, inclusief herstartlogica.
+ * @param {Array} questions - De array met vragen (musicTracks of f1Questions).
+ * @param {Array} usedIndices - De array met al gebruikte indices.
+ * @returns {number} - De index van de volgende vraag.
+ */
+function getNextIndex(questions, usedIndices) {
+    if (usedIndices.length === questions.length) {
+        // Alle vragen zijn geweest, reset de lijst en begin opnieuw
+        usedIndices.length = 0;
+        console.log("Quizlijst is op, start opnieuw.");
+    }
+
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * questions.length);
+    } while (usedIndices.includes(randomIndex));
+
+    usedIndices.push(randomIndex);
+    return randomIndex;
+}
+
+
+// --- MUZIEKQUIZ FUNCTIES ---
 
 /**
  * Functie voor de Muziekquiz
  */
 function startMusicQuiz() {
     const outputDiv = document.getElementById('music-output');
+    const answerBtn = document.getElementById('music-answer-btn');
+    const backBtn = document.getElementById('music-back-btn');
 
-    // Kies een willekeurig nummer
-    const randomIndex = Math.floor(Math.random() * musicTracks.length);
+    // Kies een willekeurig, nog niet gebruikt nummer
+    const randomIndex = getNextIndex(musicTracks, usedMusicIndices);
     const track = musicTracks[randomIndex];
+    currentMusicTrack = track; // Sla het nummer op
+    currentMusicAnswer = track.label; // Sla het antwoord op
 
     // Creëer de link en de vraag
     const outputHTML = `
-        <p><strong>OPDRACHT:</strong> Raad of dit nummer **${track.label}** is uitgebracht.</p>
+        <p><strong>OPDRACHT:</strong> Raad of dit nummer is uitgebracht **Vóór 2000** of **Ná 2000**.</p>
         <p>Klik op de link en start het nummer:</p>
         <p><a href="${track.url}" target="_blank">🎧 Klik hier voor de Spotify Link: ${track.title}</a></p>
-        <p style="margin-top: 15px; font-weight: bold;">Het antwoord is: ${track.label}</p>
+        <p id="music-answer" style="display: none; color: #e30613; font-weight: bold; margin-top: 10px;">Antwoord: ${currentMusicAnswer}</p>
     `;
 
     outputDiv.innerHTML = outputHTML;
+    
+    // Zorg ervoor dat alleen de antwoordknop getoond wordt, terugknop nog niet
+    answerBtn.style.display = 'block';
+    backBtn.style.display = 'none';
 }
+
+/**
+ * Functie om het Muziek Antwoord te tonen
+ */
+function showMusicAnswer() {
+    const answerText = document.getElementById('music-answer');
+    const answerBtn = document.getElementById('music-answer-btn');
+    const backBtn = document.getElementById('music-back-btn');
+
+    if (answerText) {
+        answerText.style.display = 'block';
+        answerBtn.style.display = 'none'; // Verberg antwoordknop na klikken
+        backBtn.style.display = 'block'; // Toon terugknop
+    }
+}
+
+
+// --- F1 QUIZ FUNCTIES (Aangepast voor herhaling) ---
 
 /**
  * Functie voor de F1 Quiz
@@ -166,8 +255,8 @@ function startF1Quiz() {
     const outputDiv = document.getElementById('f1-output');
     const answerBtn = document.getElementById('f1-answer-btn');
 
-    // Kies een willekeurige vraag
-    const randomIndex = Math.floor(Math.random() * f1Questions.length);
+    // Kies een willekeurige, nog niet gebruikte vraag
+    const randomIndex = getNextIndex(f1Questions, usedF1Indices);
     currentF1Question = f1Questions[randomIndex];
 
     // Haal de categorie en de vraagtekst op
@@ -199,27 +288,102 @@ function showF1Answer() {
 }
 
 
+// --- BORDSPEL FUNCTIES ---
+
 /**
- * Functie voor de Bordspel Opdracht
+ * Functie voor de Bordspel Opdracht (zonder dobbelsteen)
  */
-function rollDice() {
+function getBoardCommand() {
     const outputDiv = document.getElementById('board-output');
 
-    // Simuleer een dobbelsteenworp (1 tot en met 6)
-    const roll = Math.floor(Math.random() * 6) + 1;
+    // Kies een willekeurige opdracht uit de 30 vaste opdrachten
+    const randomIndex = Math.floor(Math.random() * boardCommands.length);
+    const command = boardCommands[randomIndex];
 
-    // Haal de bijbehorende opdracht op (array is 0-indexed, dus -1)
-    const command = diceCommands[roll - 1];
+    // Bepaal de bewegingstekst
+    let movementText;
+    if (command.movement > 0) {
+        movementText = `**${command.movement} stap(pen) vooruit**`;
+    } else if (command.movement < 0) {
+        movementText = `**${Math.abs(command.movement)} stap(pen) achteruit**`;
+    } else {
+        movementText = `**Blijf staan**`;
+    }
 
-    // Toon de worp en de opdracht
+    // Toon de opdracht en de beweging
     outputDiv.innerHTML = `
-        <p style="font-size: 30px; font-weight: bold; color: #007bff;">DOBBELSTEEN: ${roll}!</p>
-        <p><strong>OPDRACHT:</strong> ${command.command}</p>
+        <p><strong>Opdracht:</strong> ${command.command}</p>
+        <p style="margin-top: 15px; font-weight: bold; color: ${command.movement > 0 ? '#007bff' : (command.movement < 0 ? '#e30613' : '#6c757d')}">
+            Beweging: ${movementText}
+        </p>
+        <p style="font-size: small; color: #6c757d;">
+            (Actie code: ${command.action || 'Geen'})
+        </p>
     `;
 }
+
+// --- AUDIO FUNCTIES ---
+
+// Globale variabele voor de audio
+let mainMenuAudio = null;
+let isAudioPlaying = false; // Houd de status van de audio bij
+
+/**
+ * Initialiseer en speel de audio af.
+ */
+function playMainMenuAudio() {
+    // Stel de URL in op basis van je geüploade bestand
+    const audioUrl = "Tellen Tot 10.mp3"; 
+
+    // Alleen afspelen als het nog niet speelt of gepauzeerd is
+    if (!mainMenuAudio || mainMenuAudio.paused) {
+        if (!mainMenuAudio) {
+            mainMenuAudio = new Audio(audioUrl);
+            mainMenuAudio.loop = true; 
+        }
+        
+        mainMenuAudio.play().then(() => {
+            isAudioPlaying = true;
+            document.getElementById('audio-toggle-btn').innerHTML = "🔇 Muziek uit";
+        }).catch(error => {
+            // Dit gebeurt als de browser automatisch afspelen blokkeert
+            isAudioPlaying = false;
+            document.getElementById('audio-toggle-btn').innerHTML = "▶️ Muziek aan (Klik om te starten)";
+            console.log("Audio kon niet automatisch afspelen. Klik op de 'Muziek aan' knop.");
+        });
+    }
+}
+
+/**
+ * Stop de audio en reset de speler.
+ */
+function stopMainMenuAudio() {
+    if (mainMenuAudio) {
+        mainMenuAudio.pause();
+        mainMenuAudio.currentTime = 0; // Reset naar begin
+        isAudioPlaying = false;
+        document.getElementById('audio-toggle-btn').innerHTML = "▶️ Muziek aan";
+    }
+}
+
+/**
+ * Schakelt de audio status om (uit/aan) en past de knoptekst aan.
+ */
+function toggleMainMenuAudio() {
+    const audioBtn = document.getElementById('audio-toggle-btn');
+    
+    if (isAudioPlaying) {
+        stopMainMenuAudio();
+    } else {
+        playMainMenuAudio();
+    }
+}
+
 
 // Zorgt ervoor dat we bij het laden op het hoofdmenu starten en knoppen verstopt zijn
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('f1-answer-btn').style.display = 'none';
+    showView('main-menu'); 
+});
     showView('main-menu'); 
 });
