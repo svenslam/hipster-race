@@ -272,7 +272,7 @@ function startF1Quiz() {
 
     // Toon de knop om het antwoord te onthullen
     answerBtn.style.display = 'block';
-}
+} // <--- CORRECTE SLUITING VAN DE FUNCTIE startF1Quiz
 
 /**
  * Functie om het F1 Antwoord te tonen
