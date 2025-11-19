@@ -2,7 +2,7 @@
 // **BELANGRIJK:** Vervang de EXAMPLE URL's door echte Spotify-links uit de Nederlandse Top 40 (1990-2010).
 const musicTracks = [
     // 15 nummers "Voor 2000" (1990-1999)
-    { url: "https://example.com/spotify/voor2000/1", label: "Voor 2000", title: "Voorbeeld 1993 nummer" },
+    { url: "https://open.spotify.com/track/7onAFA3kzCPJWG3gvvMxhx?si=LFFjmw_oTb-K0QYnEyk_kQ", label: "Voor 2000", title: "Voorbeeld 1993 nummer" },
     { url: "https://example.com/spotify/voor2000/2", label: "Voor 2000", title: "Voorbeeld 1996 nummer" },
     { url: "https://example.com/spotify/voor2000/3", label: "Voor 2000", title: "Voorbeeld 1991 nummer" },
     { url: "https://example.com/spotify/voor2000/4", label: "Voor 2000", title: "Voorbeeld 1997 nummer" },
