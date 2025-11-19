@@ -383,7 +383,10 @@ function toggleMainMenuAudio() {
 // Zorgt ervoor dat we bij het laden op het hoofdmenu starten en knoppen verstopt zijn
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('f1-answer-btn').style.display = 'none';
-    showView('main-menu'); 
-});
+    
+    // Verberg de knoppen van de muziekquiz bij de start
+    document.getElementById('music-answer-btn').style.display = 'none';
+    document.getElementById('music-back-btn').style.display = 'none';
+
     showView('main-menu'); 
 });
